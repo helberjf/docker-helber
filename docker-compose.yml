@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    container_name: api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    # O comando com --reload é ideal para desenvolvimento, pois reinicia o servidor
+    # automaticamente quando você altera o código.
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
